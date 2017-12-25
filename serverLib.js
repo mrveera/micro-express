@@ -25,3 +25,5 @@ lib.respond = function (res,content,statusCode,header,encoding) {
   lib.logResponse.call(res);
   res.end();
 }
+
+module.exports=lib;

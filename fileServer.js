@@ -67,7 +67,7 @@ const fileServer = function(req, res) {
       lib.respond(res,'<h1> NOT FOUND</h1>',404,header,'utf8')
       return;
     }
-    respond(res,data,200,header,encoding);
+    lib.respond(res,data,200,header,encoding);
   });
   return;
 }
