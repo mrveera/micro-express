@@ -2,13 +2,12 @@
   "name": "STEP",
   "version": "1.0.0",
   "description": "'tic tack to game for slack'",
-  "main": "server.js",
+  "main": "index.js",
   "directories": {
     "lib": "lib",
     "test": "test"
   },
   "scripts": {
-    "start":"node demoServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
