@@ -4,7 +4,7 @@ const url = require('url');
 let games ={
   lastId:"01"
 }
-const GameHandler = require('./gameHandler.js');
+const GameHandler = require('./lib/gameHandler.js');
 const PORT = process.env.PORT||8080;
 
 let handlers = {
