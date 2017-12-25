@@ -1,7 +1,8 @@
 {
-  "name": "@veera83372/node-server",
+  "name": "micro-express",
   "version": "1.0.0",
-  "description": "'tic tack to game for slack'",
+  "description": "Small and simple server for big purposes\
+  Size=>micro,Work=>expess",
   "main": "index.js",
   "directories": {
     "test": "test"
