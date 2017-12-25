@@ -1,15 +1,27 @@
 {
-  "name": "node-server",
+  "name": "@veera83372/node-server",
   "version": "1.0.0",
   "description": "'tic tack to game for slack'",
   "main": "index.js",
   "directories": {
-    "lib": "lib",
     "test": "test"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "veera",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veera83372/node-server.git"
+  },
+  "keywords": [
+    "node",
+    "basic",
+    "server"
+  ],
+  "bugs": {
+    "url": "https://github.com/veera83372/node-server/issues"
+  },
+  "homepage": "https://github.com/veera83372/node-server#readme"
 }
