@@ -11,13 +11,22 @@ const Server = function (port=8080,options={}) {
   this.PORT=process.env.PORT||port;
 }
 
-Server.prototype.addHandler = function (method,callback) {
-  this.handlers[method]=callback;
+Server.prototype.addHandler = function (method,path,callback) {
+  this.handlers[method][path]=callback;
+};
+
+Server.prototype.get = function (path,callback) {
+  this.addHandler('GET',path,callback);
+};
+
+Server.prototype.post = function (path,callback) {
+  this.addHandlers('POST',path,callback);
 };
 
 Server.prototype.addDefaulthandler = function (handler) {
   this.defaultHandler=handler;
 };
+
 Server.prototype.getHandler = function(method, path) {
   let handler = this.defaultHandler||fileServer;
   if (this.handlers[method][path])
