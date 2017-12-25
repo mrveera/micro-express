@@ -1,6 +1,6 @@
 {
   "name": "micro-express",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Small and simple server for big purposes (Size=>micro,Work=>expess)",
   "main": "index.js",
   "directories": {
