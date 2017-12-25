@@ -1,9 +1,8 @@
-const Server = require('./server.js');
-const gameServer = require('./lib/ticTacToe/gamesServer.js');
+const Server = require('./server');
 
 let server=new Server(8080);
 
-server.get('/play',gameServer.play);
-server.get('/game',gameServer.createGame);
-server.get('/join',gameServer.joinGame);
+server.get('/hi',function (req,res,queryData) {
+  this.respond(res,'hello',200,{'content-type':'text/html'});
+});
 server.start();

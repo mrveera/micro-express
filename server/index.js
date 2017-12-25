@@ -39,9 +39,11 @@ Server.prototype.requestHandler = function(req, res) {
   lib.logRequest.call(req);
   let url=req.url.split('?')[0];
   let handler = this.getHandler(req.method, url);
-  lib.ServerEvents.once('data collected',handler.bind(null,req,res));
+  lib.ServerEvents.once('data collected',handler.bind(this,req,res));
   let queryData = lib.getQueryData[req.method](req);
 }
+
+Server.prototype.respond = lib.respond;
 
 Server.prototype.start = function () {
   this.server=http.createServer(this.requestHandler.bind(this));
