@@ -45,8 +45,9 @@ Server.prototype.requestHandler = function(req, res) {
 
 Server.prototype.start = function () {
   this.server=http.createServer(this.requestHandler);
+  let server=this.server;
   this.server.on('listening', function() {
-    console.log('Dude I am listening on port:', this.server.address().port);
+    console.log('Dude I am listening on port:', server.address().port);
   })
   this.server.on('error', function(err) {
     console.log(err.message)
