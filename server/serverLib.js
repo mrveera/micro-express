@@ -41,7 +41,7 @@ lib.getQueryData['POST'] = function (req) {
   });
   req.on('end',function () {
     let query=url.parse(`http://localhost/?${queryData}`,true).query;
-    query.original_data=queryData;
+    query.originalData=queryData;
     ServerEvents.emit('data collected',query);
   })
 }
