@@ -1,3 +1,4 @@
+const queryString = require('queryString');
 const url = require('url');
 const EventEmitter = require('events').EventEmitter;
 const lib={};
@@ -30,8 +31,8 @@ lib.getQueryData={};
 
 lib.getQueryData['GET'] = function (req) {
   let queryData = url.parse(`http://localhost${req.url}`,true).query;
-  debugger;
-  ServerEvents.emit('data collected',queryData);
+  req.queryParams=queryData;
+  ServerEvents.emit('data collected');
 }
 
 lib.getQueryData['POST'] = function (req) {
@@ -40,9 +41,10 @@ lib.getQueryData['POST'] = function (req) {
     queryData+=data;
   });
   req.on('end',function () {
-    let query=url.parse(`http://localhost/?${queryData}`,true).query;
-    query.originalData=queryData;
-    ServerEvents.emit('data collected',query);
+    let query=queryString.parse(queryData);
+    req.body=query;
+    req.body.originalData=queryData
+    ServerEvents.emit('data collected');
   })
 }
 
