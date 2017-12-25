@@ -1,4 +1,4 @@
-const queryString = require('queryString');
+const queryString = require('querystring');
 const url = require('url');
 const EventEmitter = require('events').EventEmitter;
 const lib={};
