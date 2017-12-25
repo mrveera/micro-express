@@ -1,5 +1,5 @@
 {
-  "name": "STEP slack",
+  "name": "STEP",
   "version": "1.0.0",
   "description": "'tic tack to game for slack'",
   "main": "server.js",
