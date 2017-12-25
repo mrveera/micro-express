@@ -21,7 +21,7 @@ Server.prototype.get = function (path,callback) {
 };
 
 Server.prototype.post = function (path,callback) {
-  this.addHandlers('POST',path,callback);
+  this.addHandler('POST',path,callback);
 };
 
 Server.prototype.addDefaulthandler = function (handler) {
