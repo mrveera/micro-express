@@ -13,7 +13,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/veera83372/node-server.git"
+    "url": "git+https://github.com/veera83372/micro-express.git"
   },
   "keywords": [
     "node",
@@ -21,7 +21,7 @@
     "server"
   ],
   "bugs": {
-    "url": "https://github.com/veera83372/node-server/issues"
+    "url": "https://github.com/veera83372/micro-express/issues"
   },
-  "homepage": "https://github.com/veera83372/node-server#readme"
+  "homepage": "https://github.com/veera83372/micro-express#readme"
 }
