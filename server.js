@@ -11,6 +11,7 @@ const Server = function (port=8080,options={}) {
   this.PORT=process.env.PORT||port;
 }
 
+
 Server.prototype.addHandler = function (method,path,callback) {
   this.handlers[method][path]=callback;
 };
@@ -52,3 +53,5 @@ Server.prototype.start = function () {
   })
   this.server.listen(this.port,this.options);
 };
+
+module.exports=Server;
