@@ -40,8 +40,9 @@ lib.getQueryData['POST'] = function (req) {
     queryData+=data;
   });
   req.on('end',function () {
-    queryData=url.parse(`http://localhost/?${queryData}`,true).query;
-    ServerEvents.emit('data collected',queryData);
+    let query=url.parse(`http://localhost/?${queryData}`,true).query;
+    query.original_data=queryData;
+    ServerEvents.emit('data collected',query);
   })
 }
 
