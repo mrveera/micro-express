@@ -44,7 +44,7 @@ Server.prototype.requestHandler = function(req, res) {
 }
 
 Server.prototype.start = function () {
-  this.server=http.createServer(this.requestHandler);
+  this.server=http.createServer(this.requestHandler.bind(this));
   let server=this.server;
   this.server.on('listening', function() {
     console.log('Dude I am listening on port:', server.address().port);
@@ -52,7 +52,7 @@ Server.prototype.start = function () {
   this.server.on('error', function(err) {
     console.log(err.message)
   })
-  this.server.listen(this.port,this.options);
+  this.server.listen(this.PORT,this.options);
 };
 
 module.exports=Server;
