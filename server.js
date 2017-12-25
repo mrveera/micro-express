@@ -5,10 +5,15 @@ const lib = require('./serverLib');
 const PORT = process.env.PORT||8080;
 
 
+const handlers = {
+  "POST": {},
+  "GET": {}
+}
+
 const getHandler = function(method, path) {
   let handler = fileServer;
-  if (lib.handlers[method][path])
-    handler = lib.handlers[method][path];
+  if (handlers[method][path])
+    handler = handlers[method][path];
   return handler;
 }
 
