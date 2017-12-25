@@ -1,43 +1,45 @@
 const http = require('http');
 const fileServer = require('./fileServer');
-const url = require('url');
 const lib = require('./serverLib');
-const PORT = process.env.PORT||8080;
 
-
-const handlers = {
-  "POST": {},
-  "GET": {}
+const Server = function (port=8080,options={}) {
+  this.handlers={
+    "POST": {},
+    "GET": {}
+  };
+  this.options=options;
+  this.PORT=process.env.PORT||port;
 }
 
-const getHandler = function(method, path) {
-  let handler = fileServer;
-  if (handlers[method][path])
-    handler = handlers[method][path];
+Server.prototype.addHandler = function (method,callback) {
+  this.handlers[method]=callback;
+};
+
+Server.prototype.addDefaulthandler = function (handler) {
+  this.defaultHandler=handler;
+};
+Server.prototype.getHandler = function(method, path) {
+  let handler = this.defaultHandler||fileServer;
+  if (this.handlers[method][path])
+    handler = this.handlers[method][path];
   return handler;
 }
 
-const requestHandler = function(req, res) {
+Server.prototype.requestHandler = function(req, res) {
   lib.logRequest.call(req);
   let url=req.url.split('?')[0];
-  let queryParams
-  let handler = getHandler(req.method, url);
-  handler(req, res);
+  let handler = this.getHandler(req.method, url);
+  lib.ServerEvents.once('data collected',handler.bind(null,req,res));
+  let queryData = lib.getQueryData[req.method](req);
 }
 
-const server = http.createServer(requestHandler);
-
-server.on('listening', function() {
-  console.log('Dude I am listening on port:', server.address().port);
-})
-
-server.on('error', function(err) {
-  console.log(err.message)
-})
-
-const startServer = function() {
-  port = process.argv[2] || PORT;
-  server.listen(port);
-}
-
-startServer();
+Server.prototype.start = function () {
+  this.server=http.createServer(this.requestHandler);
+  this.server.on('listening', function() {
+    console.log('Dude I am listening on port:', server.address().port);
+  })
+  this.server.on('error', function(err) {
+    console.log(err.message)
+  })
+  this.server.listen(this.port,this.options);
+};
