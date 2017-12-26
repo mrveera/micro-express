@@ -1,6 +1,6 @@
 {
   "name": "micro-express",
-  "version": "2.0.3",
+  "version": "2.0.5",
   "description": "Small and simple server for big purposes (Size=>micro,Work=>expess)",
   "main": "bin/micro-express-cli.js",
   "preferGlobal": true,
