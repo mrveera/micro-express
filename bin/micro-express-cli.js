@@ -24,6 +24,8 @@ server.post('/hi',function (req,res) {
 server.start();
 `;
 
+
+
 let indexContent =`<h1>hello</h1>`;
 
 let createProject = function (parsedArguments) {
@@ -33,10 +35,34 @@ let createProject = function (parsedArguments) {
   }
 
   let path=parsedArguments.flags['n'] || parsedArguments.arguments[0];
+  let pkg=`{
+    "name": "${path}",
+    "version": "1.0.0",
+    "description": "dummy",
+    "main": "server.js",
+    "directories": {
+      "lib": "lib",
+      "test": "test"
+    },
+    "scripts": {
+      "start": "node server.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "micro-express": "^1.0.6"
+    }
+  }`;
+  try{
   fs.mkdirSync(path);
   fs.mkdirSync(path+'/public');
   fs.writeFileSync(path+'/public/index.html',indexContent,'utf8');
   fs.writeFileSync(path+'/server.js',serverContent,'utf8');
+  fs.writeFileSync(path+'/package.json',pkg,'utf8');
+}catch(err){
+  console.log(err.message);
+}
 }
 
 let CLI = new Command('cli','n');
