@@ -27,10 +27,11 @@ server.start();
 let indexContent =`<h1>hello</h1>`;
 
 let createProject = function (parsedArguments) {
-  if(Object.keys(parsedArguments.flags.length<=0)|| !parsedArguments.arguments[0]) {
+  if(Object.keys(parsedArguments.flags).length<=0&& !parsedArguments.arguments[0]) {
     showHelp();
     return;
   }
+
   let path=parsedArguments.flags['n'] || parsedArguments.arguments[0];
   fs.mkdirSync(path);
   fs.mkdirSync(path+'/public');
