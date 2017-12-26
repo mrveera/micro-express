@@ -8,7 +8,7 @@ const showHelp = function () {
 }
 
 let serverContent =`
-const Server = require('../server');
+const Server = require('micro-express');
 
 let server=new Server(8080);
 
