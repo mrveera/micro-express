@@ -1,10 +1,11 @@
 {
   "name": "micro-express",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "Small and simple server for big purposes (Size=>micro,Work=>expess)",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
+  "main": "bin/micro-express-cli.js",
+  "preferGlobal": true,
+  "bin": {
+    "micro-express": "./bin/micro-express-cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
