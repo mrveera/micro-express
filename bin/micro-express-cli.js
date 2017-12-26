@@ -27,11 +27,7 @@ server.start();
 let indexContent =`<h1>hello</h1>`;
 
 let createProject = function (parsedArguments) {
-<<<<<<< HEAD
   if(Object.keys(parsedArguments.flags.length<=0)|| !parsedArguments.arguments[0]) {
-=======
-  if(Object.keys(parsedArguments.flags.length<=0)) {
->>>>>>> 5870207c2657ac8b8b0873e7286b1a4341c0055c
     showHelp();
     return;
   }
