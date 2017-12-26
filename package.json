@@ -1,12 +1,8 @@
 {
   "name": "micro-express",
-  "version": "2.0.5",
+  "version": "2.0.9",
   "description": "Small and simple server for big purposes (Size=>micro,Work=>expess)",
-  "main": "bin/micro-express-cli.js",
-  "preferGlobal": true,
-  "bin": {
-    "micro-express": "./bin/micro-express-cli.js"
-  },
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,8 +20,5 @@
   "bugs": {
     "url": "https://github.com/veera83372/micro-express/issues"
   },
-  "homepage": "https://github.com/veera83372/micro-express#readme",
-  "dependencies": {
-    "command-line-arguments-parser": "^4.1.8"
-  }
+  "homepage": "https://github.com/veera83372/micro-express#readme"
 }
